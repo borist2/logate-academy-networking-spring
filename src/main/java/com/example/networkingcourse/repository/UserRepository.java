@@ -16,4 +16,6 @@ public interface UserRepository extends Repository<User, Integer>
     Optional<User> findById(Integer id);
 
     void deleteById(Integer id);
+
+    boolean existsById(Integer id);
 }
