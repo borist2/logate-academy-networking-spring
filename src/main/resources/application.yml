@@ -17,3 +17,24 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  ssl:
+    bundle:
+      jks:
+        springbootssl:
+          key:
+            alias: springbootssl
+          keystore:
+            location: classpath:springbootssl.p12
+            password: password
+            type: PKCS12
+
+# keytool -genkeypair -alias springbootssl -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore springbootssl.p12 -validity 3650
+server:
+  ssl:
+    bundle: "springbootssl"
+    enabled-protocols: TLSv1.3
+  port: 8443
+
+jwt:
+  secret: ZMvXyNKUp05KkbQtDz+BrSirKl5Cg8XNILGmcgQxYrA=
